@@ -1,8 +1,10 @@
+
+
 <?php
 
 /** Register the admin menu **/ 
- add_action('admin_menu', 'tscore_tscore2');
-	function tscore_tscore2() {
+ add_action('admin_menu', 'tscore2');
+	function tscore2() {
 		add_menu_page('TSCORE', 'Vedubox Info ', 'moderate_comments', 'tscore', 'landlord_fun', plugins_url('assets/iconplugin.png', __FILE__) , 30);
 	}
 //add_action('admin_menu','tscore_submenu_add_landlord');
@@ -29,11 +31,11 @@ function tenant_fun(){
 /**
 VeduBox Plugin User Guide
 */
-add_action('admin_menu','tscore_userGuide');
- function tscore_userGuide(){
-	add_submenu_page('tscore','Tenant','User Guide','manage_options','guide','tscore_User_Guide');
+add_action('admin_menu','userGuide');
+ function userGuide(){
+	add_submenu_page('tscore','Tenant','User Guide','manage_options','guide','User_Guide');
 	}
-function tscore_User_Guide(){
+function User_Guide(){
 	include_once(TSCORE_PLUGIN_PATH.'/admin/vedubox_user_guide.php');
 }
 
@@ -43,8 +45,8 @@ function tscore_User_Guide(){
 /**
  Course List Shortcode ---  Its come using api
 */
-add_shortcode('COURSE','tscore_plugin_course_list');
-	function tscore_plugin_course_list(){
+add_shortcode('COURSE','course_list');
+	function course_list(){
 
 		include_once(TSCORE_PLUGIN_PATH.'/views/login_registration/course.php');	
  }
@@ -52,8 +54,8 @@ add_shortcode('COURSE','tscore_plugin_course_list');
 /**
  Login Button ---  Its action go to client site.
 */
-add_shortcode('L_BUTTON','tscore_login_button_Button');
-	function tscore_login_button_Button(){
+add_shortcode('L_BUTTON','l_Button');
+	function l_Button(){
 
 		include_once(TSCORE_PLUGIN_PATH.'/views/login_registration/login_button.php');	
  }
@@ -61,8 +63,8 @@ add_shortcode('L_BUTTON','tscore_login_button_Button');
 /**
  Teachers List ---  It will display list of teachers come from API .
 */
-add_shortcode('TEACHER_LIST','tscore_plugin_teacher_list');
-	function tscore_plugin_teacher_list(){
+add_shortcode('TEACHER_LIST','teacher_list');
+	function teacher_list(){
 
 		include_once(TSCORE_PLUGIN_PATH.'/views/login_registration/teachers.php');	
  }
@@ -70,8 +72,8 @@ add_shortcode('TEACHER_LIST','tscore_plugin_teacher_list');
 /**
  Teachers Photos ---  It will display list of teachers and photos come from API .
 */
-add_shortcode('TEACHER_PTOTOS','tscore_plugin_teacher_photos');
-	function tscore_plugin_teacher_photos(){
+add_shortcode('TEACHER_PTOTOS','teacher_photos');
+	function teacher_photos(){
 
 		include_once(TSCORE_PLUGIN_PATH.'/views/login_registration/teachers_photos.php');	
  }
@@ -79,7 +81,7 @@ add_shortcode('TEACHER_PTOTOS','tscore_plugin_teacher_photos');
 /**
  Contract  Pagination Shortcode
 */
-function tscore_plugin_backend_pagination($total_records, $limit, $set){
+function backend_pagination($total_records, $limit, $set){
     global $wp_roles;
     $cur_role= array_shift(wp_get_current_user()->roles);
 	$qs = http_build_query($_GET);
@@ -199,33 +201,4 @@ function tscore_plugin_backend_pagination($total_records, $limit, $set){
 /**
   End Pagination
 */
-
-/** * Add stylesheet to the page*/
-add_action( 'tscore_plugin_course_page_action', 'tscore_plugin_course_page' );
-function tscore_plugin_course_page( $hook_suffix ) {	
-echo "<link rel='stylesheet' id='bootstrap-select-css'  href=
-".TSCORE_ASSETS_URL.'/css/plugin/bootstrap.css'." type='text/css' media='all' />";
-echo "<link rel='stylesheet' id='bootstrap-select-css'  href=". TSCORE_ASSETS_URL.'/css/plugin_style.css'." type='text/css' media='all' />";
-echo "<link rel='stylesheet' id='bootstrap-select-css'  href=". TSCORE_ASSETS_URL.'/css/plugin/style.css'." type='text/css' media='all' />";
-echo "<link rel='stylesheet' id='bootstrap-select-css'  href=". TSCORE_ASSETS_URL.'/css/plugin/style_teachers.css'." type='text/css' media='all' />";
-echo "<link rel='stylesheet' id='bootstrap-select-css'  href=". TSCORE_ASSETS_URL.'/css/plugin/bootstrap.min.css'." type='text/css' media='all' />";
-}
-
-add_action('tscore_plugin_teacher_page_action','tscore_plugin_teacher_page');
-function tscore_plugin_teacher_page($hook_suffix){
-	echo "<link rel='stylesheet' id='bootstrap-select-css'  href=". TSCORE_ASSETS_URL.'/css/plugin/style_teachers.css'." type='text/css' media='all' />";
-	echo "<link rel='stylesheet' id='bootstrap-select-css'  href=". TSCORE_ASSETS_URL.'/css/plugin/bootstrap.min.css'." type='text/css' media='all' />";
-}
-
-add_action('tscore_plugin_teacherPhoto_page_action','tscore_plugin_teacherPhoto_page');
-function tscore_plugin_teacherPhoto_page($hook_suffix){
-	echo "<link rel='stylesheet' id='bootstrap-select-css'  href=". TSCORE_ASSETS_URL.'/css/plugin/style_teacher_photos.css'." type='text/css' media='all' />";
-	echo "<link rel='stylesheet' id='bootstrap-select-css'  href=". TSCORE_ASSETS_URL.'/css/plugin/bootstrap.min.css'." type='text/css' media='all' />";
-}
-
-add_action('tscore_plugin_login_page_action','tscore_plugin_login_page');
-function tscore_plugin_login_page($hook_suffix){
-	echo "<link rel='stylesheet' id='bootstrap-select-css'  href=". TSCORE_ASSETS_URL.'/css/plugin_style.css'." type='text/css' media='all' />";
-}
-
 ?>

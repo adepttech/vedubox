@@ -1,6 +1,6 @@
-<link rel='stylesheet' id='bootstrap-select-css'  href='<?php echo TSCORE_ASSETS_URL.'/css/plugin/bootstrap.min.css'; ?>' type='text/css' media='all' />
-<script  src="<?php echo TSCORE_ASSETS_URL.'/js/plugin/jquery.min.js';?>"></script>
-<script  src="<?php echo TSCORE_ASSETS_URL.'/js/plugin/bootstrap.min.js';?>"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <?php
 global $wpdb;
 /* echo $ab  = site_url().'/wp-content/plugins/tscore/admin/';

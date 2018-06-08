@@ -111,9 +111,8 @@ function myscript_in_footer(){
 <?php } ?><?php
 add_action('admin_footer', 'custom_admin_js');
 function custom_admin_js() { ?>
-<script  src="<?php echo TSCORE_ASSETS_URL.'/js/plugin/jquery.validate.js'; ?>"></script>
-<script  src="<?php echo TSCORE_ASSETS_URL.'/js/plugin/jquery.validate.min.js'; ?>"></script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js" ></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js" ></script>
 	<script type="text/javascript">
 		
 		jQuery(document).ready(function ($) {
@@ -149,6 +148,22 @@ function custom_admin_js() { ?>
 		
 	</script>
 	
-	<?php }
+	<script>
+			/* jQuery(document).ready(function ($) {
+			$("#form1").validate({
+				rules: {
+					field1: "required"
+				},
+				messages: {
+					field1: "Please specify your name"
+
+				}
+			})
+
+			$('#btn').click(function() {				
+				$("#form1").valid();
+			});
+		}); */
+	</script><?php }
 
 ?>

@@ -1,5 +1,5 @@
+<link rel='stylesheet' id='bootstrap-select-css'  href='<?php echo TSCORE_ASSETS_URL.'/css/plugin_style.css'; ?>' type='text/css' media='all' />
 <?php
-do_action('tscore_plugin_login_page_action');
 global $wpdb;
 $execute1 = $wpdb->get_results("select * from lms_setting");
 $login_button  = $execute1[0]->login_button ;
